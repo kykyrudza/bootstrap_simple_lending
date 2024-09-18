@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лендинг</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Общие стили */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .feature-card, .service-card {
+            transition: transform 0.3s ease-in-out;
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .feature-card:hover, .service-card:hover {
+            transform: scale(1.05);
+        }
+
+        .feature-icon, .service-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial p {
+            font-size: 1.25rem;
+            color: #333;
+        }
+
+        .author {
+            font-style: italic;
+            color: #666;
+        }
+
+        .rating i {
+            font-size: 1.5rem;
+            margin-right: 5px;
+        }
+
+        .share-buttons {
+            margin-top: 20px;
+        }
+
+        .share-buttons button {
+            margin-right: 10px;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        #header {
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+            height: 100vh;
+        }
+
+        #features, #services, #testimonials {
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #343a40 !important;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #fff !important;
+        }
+
+        .navbar-toggler-icon {
+            background-color: #fff;
+        }
+
+        /* Футтер */
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: #fff;
+        }
+
+        footer a:hover {
+            color: #007bff;
+        }
+
+        #about {
+            background-color: #f8f9fa;
+        }
+
+        #about img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #about h2 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        #about p {
+            font-size: 1.125rem;
+            color: #666;
+        }
+
+        #about .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        @media (max-width: 576px) {
+            .testimonial .lead {
+                font-size: 1rem;
+            }
+
+            .testimonial .rating i {
+                font-size: 0.875rem;
+            }
+        }
+        /* Стили для формы обратной связи */
+        #contact {
+            background-color: #f8f9fa;
+        }
+
+        #contact h2 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        #contact .form-group label {
+            font-size: 1.125rem;
+            color: #333;
+        }
+
+        #contact .form-control {
+            border-radius: 0.25rem;
+            box-shadow: none;
+        }
+
+        #contact .form-control:focus {
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            border-color: #007bff;
+        }
+
+        #contact .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        #contact .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Навигационное меню -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">Бренд</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#header">Главная</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#features">Особенности</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#services">Услуги</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#testimonials">Отзывы</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact">Контакты</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Заголовок -->
+<section id="header" class="d-flex align-items-center justify-content-center text-center" style="min-height: 100vh; background: linear-gradient(to right, #00c6ff, #0072ff); color: #fff;">
+    <div class="container">
+        <h1 class="display-4 mb-4">Добро пожаловать!</h1>
+        <p class="lead mb-4">Мы предоставляем лучшие решения для вашего бизнеса.</p>
+        <a href="#services" class="btn btn-light btn-lg">Наши услуги</a>
+    </div>
+</section>
+
+<!-- Про нас -->
+<section id="about" class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <img src="https://via.placeholder.com/500x300" alt="About Us" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-4">О нас</h2>
+                <p class="lead">Мы - команда профессионалов, стремящихся предоставить вам лучшие решения для вашего бизнеса. Наш опыт и внимание к деталям помогают нам создавать качественные и эффективные продукты.</p>
+                <p>Наши услуги включают веб-разработку, мобильные приложения, цифровой маркетинг и техническую поддержку. Мы работаем с каждым клиентом индивидуально, чтобы обеспечить наилучшие результаты и удовлетворение потребностей.</p>
+                <a href="#contact" class="btn btn-primary btn-lg mt-3">Связаться с нами</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Особенности -->
+<section id="features" class="text-center">
+    <div class="container">
+        <h2 class="mb-5">Особенности</h2>
+        <div class="row">
+            <div class="col-md-4 p-2" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card">
+                    <i class="fas fa-rocket feature-icon text-primary"></i>
+                    <h3>Быстрая доставка</h3>
+                    <p>Мы гарантируем быструю доставку ваших заказов.</p>
+                </div>
+            </div>
+            <div class="col-md-4 p-2" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card">
+                    <i class="fas fa-hand-holding-usd feature-icon text-primary"></i>
+                    <h3>Приемлемые цены</h3>
+                    <p>Наши цены доступны для каждого клиента.</p>
+                </div>
+            </div>
+            <div class="col-md-4 p-2" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-card">
+                    <i class="fas fa-headset feature-icon text-primary"></i>
+                    <h3>24/7 поддержка</h3>
+                    <p>Наша команда готова помочь вам круглосуточно.</p>
+                </div>
+            </div>
+            <div class="col-md-4 p-2" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-card">
+                    <i class="fas fa-cloud feature-icon text-primary"></i>
+                    <h3>Облачные решения</h3>
+                    <p>Оптимизируйте свой бизнес с помощью надежных облачных технологий.</p>
+                </div>
+            </div>
+            <div class="col-md-4 p-2" data-aos="fade-up" data-aos-delay="500">
+                <div class="feature-card">
+                    <i class="fas fa-lock feature-icon text-primary"></i>
+                    <h3>Безопасность данных</h3>
+                    <p>Мы гарантируем защиту ваших данных на всех уровнях.</p>
+                </div>
+            </div>
+            <div class="col-md-4 p-2" data-aos="fade-up" data-aos-delay="600">
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt feature-icon text-primary"></i>
+                    <h3>Адаптивный дизайн</h3>
+                    <p>Ваш сайт будет выглядеть прекрасно на любых устройствах.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Услуги -->
+<section id="services" class="text-center">
+    <div class="container">
+        <h2 class="mb-5">Наши услуги</h2>
+        <div class="row">
+            <div class="col-md-4 p-2" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card">
+                    <i class="fas fa-shopping-bag service-icon text-primary"></i>
+                    <h3>Электронная коммерция</h3>
+                    <p>Развивайте свой бизнес в интернете с нашими электронными торговыми решениями.</p>
+                </div>
+            </div>
+            <div class="col-md-4 p-2" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card">
+                    <i class="fas fa-mobile-alt service-icon text-primary"></i>
+                    <h3>Мобильные приложения</h3>
+                    <p>Мы создаем интуитивно понятные и качественные мобильные приложения для вашего бизнеса.</p>
+                </div>
+            </div>
+            <div class="col-md-4 p-2" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-card">
+                    <i class="fas fa-chart-line service-icon text-primary"></i>
+                    <h3>Цифровой маркетинг</h3>
+                    <p>Мы помогаем вашему бизнесу расти в цифровой сфере с помощью эффективных маркетинговых стратегий.</p>
+                </div>
+            </div>
+            <div class="col-md-4 p-2" data-aos="fade-up" data-aos-delay="400">
+                <div class="service-card">
+                    <i class="fas fa-desktop service-icon text-primary"></i>
+                    <h3>Веб-разработка</h3>
+                    <p>Создаем красивые и функциональные веб-сайты, соответствующие вашим требованиям.</p>
+                </div>
+            </div>
+            <div class="col-md-4 p-2" data-aos="fade-up" data-aos-delay="500">
+                <div class="service-card">
+                    <i class="fas fa-cogs service-icon text-primary"></i>
+                    <h3>Техническая поддержка</h3>
+                    <p>Обеспечиваем бесперебойную работу вашего сайта с нашей поддержкой.</p>
+                </div>
+            </div>
+            <div class="col-md-4 p-2" data-aos="fade-up" data-aos-delay="600">
+                <div class="service-card">
+                    <i class="fas fa-cloud service-icon text-primary"></i>
+                    <h3>Облачные решения</h3>
+                    <p>Оптимизируйте свой бизнес с помощью надежных облачных технологий.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Отзывы -->
+<section id="testimonials" class="bg-light text-center py-5">
+    <div class="container">
+        <h2 class="mb-5">Отзывы</h2>
+        <div class="row">
+            <!-- Отзыв 1 -->
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="testimonial p-4 bg-white shadow rounded">
+                    <img src="https://via.placeholder.com/100" class="rounded-circle mb-3" alt="User 1">
+                    <p class="lead">"Отличный сервис, быстрая доставка и дружелюбная поддержка!"</p>
+                    <div class="rating mb-3">
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star-half-alt text-primary"></i>
+                    </div>
+                    <p class="author">- Иван Петров</p>
+                    <div class="share-buttons">
+                        <button class="btn btn-primary btn-sm" onclick="shareOnFacebook()">Поделиться на Facebook</button>
+                        <button class="btn btn-info btn-sm" onclick="shareOnTwitter()">Поделиться на Twitter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Отзыв 2 -->
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="testimonial p-4 bg-white shadow rounded">
+                    <img src="https://via.placeholder.com/100" class="rounded-circle mb-3" alt="User 2">
+                    <p class="lead">"Никогда не думал, что получу такие качественные товары за такую цену!"</p>
+                    <div class="rating mb-3">
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star-half-alt text-primary"></i>
+                    </div>
+                    <p class="author">- Анна Иванова</p>
+                    <div class="share-buttons">
+                        <button class="btn btn-primary btn-sm" onclick="shareOnFacebook()">Поделиться на Facebook</button>
+                        <button class="btn btn-info btn-sm" onclick="shareOnTwitter()">Поделиться на Twitter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Отзыв 3 -->
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="testimonial p-4 bg-white shadow rounded">
+                    <img src="https://via.placeholder.com/100" class="rounded-circle mb-3" alt="User 3">
+                    <p class="lead">"Спасибо вам за отличный сервис! Обязательно буду рекомендовать вас друзьям!"</p>
+                    <div class="rating mb-3">
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star text-primary"></i>
+                        <i class="fas fa-star-half-alt text-primary"></i>
+                    </div>
+                    <p class="author">- Петр Сидоров</p>
+                    <div class="share-buttons">
+                        <button class="btn btn-primary btn-sm" onclick="shareOnFacebook()">Поделиться на Facebook</button>
+                        <button class="btn btn-info btn-sm" onclick="shareOnTwitter()">Поделиться на Twitter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="py-5">
+    <div class="container border py-5">
+        <h2 class="text-center mb-5">Форма обратной связи</h2>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <form id="contact-form" method="post">
+                    <div class="form-group">
+                        <label for="name">Имя</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Футтер -->
+<footer>
+    <div class="container text-center">
+        <p>&copy; 2024 Ваш Бренд. Все права защищены.</p>
+        <a href="#">Политика конфиденциальности</a> | <a href="#">Условия использования</a>
+    </div>
+</footer>
+
+<!-- Скрипты -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init();
+
+    function shareOnFacebook() {
+        // Ваш код для поделиться на Facebook
+    }
+
+    function shareOnTwitter() {
+        // Ваш код для поделиться на Twitter
+    }
+</script>
+</body>
+</html>
